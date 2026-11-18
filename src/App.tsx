@@ -110,7 +110,7 @@ const projects = [
     technologies: ["Python", "LangChain", "OpenAI API", "ChromaDB", "FastAPI", "React"],
     github: "https://github.com/mufeedalali",
     status: "demo",
-    previewEmoji: "../src/assets/rag-demo.jpg",
+    previewEmoji: "/rag-demo.jpg",
     highlights: ["Vector similarity search", "Multi-document indexing", "Streaming chat UI"],
   },
   {
@@ -120,7 +120,7 @@ const projects = [
     technologies: ["Node.js", "TypeScript", "OpenAI API", "React"],
     github: "https://github.com/mufeedalali",
     status: "demo",
-    previewEmoji: "../src/assets/demo-analyze.jpg",
+    previewEmoji: "/demo-analyze.jpg",
     highlights: ["Context-aware code analysis", "Multi-language support", "Real-time suggestions"],
   },
   {
@@ -130,7 +130,7 @@ const projects = [
     technologies: ["Node.js", "PostgreSQL", "Docker", "RabbitMQ", "GitHub Actions"],
     github: "https://github.com/mufeedalali",
     status: "demo",
-    previewEmoji: "../src/assets/demo-cicd.jpeg",
+    previewEmoji: "/demo-cicd.jpeg",
     highlights: ["Event-driven architecture", "99.9% uptime SLA", "Auto-scaling CI/CD"],
   },
 ];
