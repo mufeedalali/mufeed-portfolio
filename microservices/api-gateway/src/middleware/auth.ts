@@ -39,9 +39,11 @@ export const authMiddleware = (req: AuthRequest, res: Response, next: NextFuncti
 
 // Generate token (for testing/demo purposes)
 export const generateToken = (userId: string, email: string, role: string = 'user'): string => {
+  const expiresIn = Number(process.env.JWT_EXPIRES_IN || 3600);
   return jwt.sign(
     { id: userId, email, role },
     config.jwt.secret,
-    { expiresIn: config.jwt.expiresIn }
+    { expiresIn: expiresIn }
+    // { expiresIn: config.jwt.expiresIn }
   );
 };
