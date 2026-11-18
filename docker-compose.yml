@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  rag-pipeline:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=False
+      - LOG_LEVEL=INFO
+      - EMBEDDING_MODEL=mock
+      - LLM_PROVIDER=mock
+      - VECTOR_DB_DIR=/app/data/vector_db
+      - UPLOAD_DIR=/app/data/uploads
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s

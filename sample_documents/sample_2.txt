@@ -1,0 +1,23 @@
+Sample Document 2
+
+This is the second sample document for testing the RAG pipeline.
+
+Topics Covered:
+1. Document Processing
+   - Loading various file formats
+   - Parsing text content
+   - Handling encoding issues
+
+2. Chunking Strategy
+   - Recursive splitting algorithms
+   - Overlap management
+   - Semantic preservation
+
+3. Vector Embeddings
+   - Deterministic mock embeddings
+   - OpenAI integration
+   - Sentence transformers
+
+The system architecture follows clean architecture principles with
+clear separation between domain, infrastructure, and API layers.
+This ensures maintainability and extensibility of the codebase.

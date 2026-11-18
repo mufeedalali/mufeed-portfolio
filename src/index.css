@@ -815,7 +815,7 @@ body {
 
 .project-preview-icon {
   font-size: 3rem;
-  opacity: 0.4;
+  /* opacity: 0.4; */
 }
 
 .project-preview img,

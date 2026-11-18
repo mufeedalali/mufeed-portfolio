@@ -1,0 +1,190 @@
+openapi: 3.0.0
+info:
+  title: Microservices API Gateway
+  description: API Gateway for event-driven microservices architecture
+  version: 1.0.0
+  contact:
+    name: API Support
+    email: support@example.com
+
+servers:
+  - url: http://localhost:3000
+    description: Development server
+
+security:
+  - bearerAuth: []
+
+paths:
+  /health:
+    get:
+      summary: Health check
+      security: []
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  timestamp:
+                    type: string
+                  service:
+                    type: string
+                  version:
+                    type: string
+                  uptime:
+                    type: number
+
+  /api/orders:
+    post:
+      summary: Create a new order
+      tags:
+        - Orders
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - items
+              properties:
+                items:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      productId:
+                        type: string
+                      quantity:
+                        type: integer
+                      price:
+                        type: number
+      responses:
+        '201':
+          description: Order created successfully
+        '400':
+          description: Bad request
+        '500':
+          description: Server error
+
+    get:
+      summary: Get user orders
+      tags:
+        - Orders
+      responses:
+        '200':
+          description: List of orders
+        '500':
+          description: Server error
+
+  /api/orders/{orderId}:
+    get:
+      summary: Get order by ID
+      tags:
+        - Orders
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Order details
+        '404':
+          description: Order not found
+        '500':
+          description: Server error
+
+  /api/orders/{orderId}/cancel:
+    post:
+      summary: Cancel an order
+      tags:
+        - Orders
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Order cancelled
+        '404':
+          description: Order not found
+        '500':
+          description: Server error
+
+  /api/inventory:
+    get:
+      summary: Get inventory list
+      tags:
+        - Inventory
+      responses:
+        '200':
+          description: List of inventory items
+        '500':
+          description: Server error
+
+  /api/inventory/{productId}:
+    get:
+      summary: Get product inventory
+      tags:
+        - Inventory
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product inventory details
+        '404':
+          description: Product not found
+        '500':
+          description: Server error
+
+  /api/inventory/{productId}/stock:
+    post:
+      summary: Update product stock (Admin only)
+      tags:
+        - Inventory
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                quantity:
+                  type: integer
+                operation:
+                  type: string
+                  enum: [add, set]
+      responses:
+        '200':
+          description: Stock updated
+        '403':
+          description: Forbidden
+        '404':
+          description: Product not found
+        '500':
+          description: Server error
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

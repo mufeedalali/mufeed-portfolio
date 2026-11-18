@@ -110,7 +110,7 @@ const projects = [
     technologies: ["Python", "LangChain", "OpenAI API", "ChromaDB", "FastAPI", "React"],
     github: "https://github.com/mufeedalali",
     status: "demo",
-    previewEmoji: "📄",
+    previewEmoji: "../src/assets/rag-demo.jpg",
     highlights: ["Vector similarity search", "Multi-document indexing", "Streaming chat UI"],
   },
   {
@@ -120,7 +120,7 @@ const projects = [
     technologies: ["Node.js", "TypeScript", "OpenAI API", "React"],
     github: "https://github.com/mufeedalali",
     status: "demo",
-    previewEmoji: "💻",
+    previewEmoji: "../src/assets/demo-analyze.jpg",
     highlights: ["Context-aware code analysis", "Multi-language support", "Real-time suggestions"],
   },
   {
@@ -130,7 +130,7 @@ const projects = [
     technologies: ["Node.js", "PostgreSQL", "Docker", "RabbitMQ", "GitHub Actions"],
     github: "https://github.com/mufeedalali",
     status: "demo",
-    previewEmoji: "⚡",
+    previewEmoji: "../src/assets/demo-cicd.jpeg",
     highlights: ["Event-driven architecture", "99.9% uptime SLA", "Auto-scaling CI/CD"],
   },
 ];
@@ -194,29 +194,29 @@ const analyzeCode = async (filePath: string) => {
 
 const experience = [
   {
-    role: "Backend Developer & AI Engineer",
-    company: "Freelance / Open Source",
-    date: "2023 – Present",
+    role: "Senior Backend Developer & AI Engineer",
+    company: "Freelance / Enterprise Consulting",
+    date: "2021 – Present",
     current: true,
     tasks: [
-      "Built AI-powered applications using LangChain, OpenAI API, and RAG pipelines",
-      "Designed and deployed scalable REST APIs with Node.js and TypeScript",
-      "Implemented microservices with RabbitMQ for real-time event-driven systems",
-      "Containerized production services with Docker and automated deployments via GitHub Actions",
-      "Optimized PostgreSQL queries reducing response times by 60%",
+      "Architected and deployed AI-powered applications using LangChain, OpenAI API, and RAG pipelines",
+      "Designed and delivered high-performance distributed backend systems with Node.js, TypeScript, and Python",
+      "Implemented microservices architectures with RabbitMQ for asynchronous, event-driven messaging",
+      "Containerized production workloads with Docker and orchestrated continuous delivery pipelines with GitHub Actions",
+      "Optimized complex PostgreSQL and MongoDB queries, achieving up to 60% latency reduction",
     ],
   },
   {
-    role: "Full-Stack Developer",
-    company: "Software Projects",
-    date: "2021 – 2023",
+    role: "Backend & Full-Stack Engineer",
+    company: "Software Solutions",
+    date: "2017 – 2021",
     current: false,
     tasks: [
-      "Developed full-stack web applications with PHP/Symfony, React, and Next.js",
-      "Designed RESTful APIs consumed by web and mobile clients",
-      "Integrated third-party APIs and payment gateways",
-      "Worked with PostgreSQL and MongoDB for complex data modelling",
-      "Improved CI/CD pipelines reducing deployment time by 40%",
+      "Developed robust full-stack web applications utilizing PHP/Symfony, React, and Next.js",
+      "Engineered secure RESTful APIs powering high-traffic web and mobile applications",
+      "Integrated third-party enterprise services, cloud APIs, and secure payment gateways",
+      "Maintained cloud infrastructure on AWS and automated deployment workflows",
+      "Mentored junior developers and established code quality and testing standards",
     ],
   },
 ];
@@ -566,8 +566,8 @@ function App() {
         <div className="section-wrapper section-padding" style={{ paddingTop: 48, paddingBottom: 48 }}>
           <div className="stats-grid">
             {[
-              { number: 3, suffix: "+", label: "Years Experience" },
-              { number: 15, suffix: "+", label: "Projects Delivered" },
+              { number: 7, suffix: "+", label: "Years Experience" },
+              { number: 20, suffix: "+", label: "Projects Delivered" },
               { number: 17, suffix: "", label: "Technologies" },
               { number: 100, suffix: "%", label: "Client Satisfaction" },
             ].map((s) => (
@@ -613,8 +613,8 @@ function App() {
 
               <div className="about-stats">
                 {[
-                  { number: 3, suffix: "+", label: "Years Coding" },
-                  { number: 15, suffix: "+", label: "Projects" },
+                  { number: 7, suffix: "+", label: "Years Coding" },
+                  { number: 20, suffix: "+", label: "Projects" },
                   { number: 5, suffix: "+", label: "AI Apps Built" },
                 ].map((s) => (
                   <div key={s.label} className="stat-card">
@@ -716,7 +716,13 @@ function App() {
                 {/* Preview */}
                 <div className="project-preview">
                   <div className="project-preview-placeholder">
-                    <div className="project-preview-icon">{project.previewEmoji}</div>
+                    <div className="project-preview-icon">
+                      <img
+                          src={project.previewEmoji}
+                          alt={`${project.title} Preview`}
+                          className="project-preview-image"
+                      />
+                    </div>
                     <span>Demo Preview</span>
                   </div>
                   <span className={`project-status ${project.status}`}>

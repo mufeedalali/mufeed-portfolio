@@ -1,0 +1,15 @@
+Sample Document 1
+
+This is the first sample document used for testing the RAG system.
+
+Key Features:
+- Demonstrates PDF text extraction
+- Shows document chunking
+- Illustrates embedding generation
+- Tests vector store functionality
+
+Content:
+RAG systems combine retrieval and generation for enhanced AI responses.
+The retrieval component finds relevant context from a document corpus.
+The generation component synthesizes answers based on retrieved context.
+This hybrid approach improves both accuracy and reliability of AI systems.
